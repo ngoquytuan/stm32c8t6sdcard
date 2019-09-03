@@ -19,7 +19,8 @@ uint8_t TimeIsSet = 0;
 uint16_t RetrySend = 0; //60 giay
 uint16_t sycnPeriod = 0;// 1 gio
 
-uint8_t Domain_ntpTimeServer[] = "0.asia.pool.ntp.org";    // for Example domain name
+//uint8_t Domain_ntpTimeServer[] = "0.asia.pool.ntp.org";    // for Example domain name
+uint8_t Domain_ntpTimeServer[] = "time.windows.com";
 //uint8_t Domain_IP[4]  = {0, };               // Translated IP address by DNS
 #define DNS_BUF_SIZE   200
 uint8_t ntpTimeServer_buf[DNS_BUF_SIZE];

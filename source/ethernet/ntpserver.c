@@ -39,12 +39,12 @@ int32_t NTPUDP(uint8_t sn)
             }
 					{
 						//in ra ban tin
-						
-						/*for(i=0;i<48;i++)
+						/*
+						for(i=0;i<48;i++)
 						{
 						   printf("%x ",*(clientPacket+i));
-						}*/
-						
+						}
+						*/
 						//Tao ban tin NTP
 						//ntpserverdefaultconfig();
 						/*
@@ -83,15 +83,15 @@ int32_t NTPUDP(uint8_t sn)
 						*/
 					}
 					
-					unixTime_last_sync = (timenow + STARTOFTIME);//gio luc tryen ban tin
-					unixTime_last_sync = htonl(unixTime_last_sync);// gio luc truyen
-					memcpy(&serverPacket[16], &unixTime_last_sync, 4);
-					
+					//unixTime_last_sync = (timenow + STARTOFTIME);
+					//unixTime_last_sync = htonl(unixTime_last_sync);
+					//memcpy(&serverPacket[16], &unixTime_last_sync, 4);
+					//memcpy(&serverPacket[16], &clientPacket[40], 8);
 
 					
 						//Transmit Timestamp, T3 from client, copy and return! 
-						memcpy(&serverPacket[24], &clientPacket[40], 4);
-						memcpy(&serverPacket[28], &clientPacket[44], 4);
+						memcpy(&serverPacket[24], &clientPacket[40], 8);
+						//memcpy(&serverPacket[28], &clientPacket[44], 4);
 						
 						//Thoi gian nhan dc ban tin
 						//printf("recvTime: %u, micros_recv:%u\r\n",recvTime,micros_recv);
@@ -117,6 +117,7 @@ int32_t NTPUDP(uint8_t sn)
 						micros_transmit = (micros_transmit + 1) * USECSHIFT;
 						micros_transmit = htonl(micros_transmit);//Ko hieu lam gi nhi, nhung dung!
 						memcpy(&serverPacket[44], &micros_transmit, 4);
+						memcpy(&serverPacket[16], &serverPacket[32], 8);//unixTime_last_sync == recvTime
 						//Gui tra ban tin NTP
 						while(sentsize != NTP_PACKET_SIZE)
             {

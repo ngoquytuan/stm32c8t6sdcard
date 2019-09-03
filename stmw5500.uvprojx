@@ -470,7 +470,7 @@
             <File>
               <FileName>dns.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\stmsdcard2Aug2019\stmsdcard\source\ethernet\DNS\dns.c</FilePath>
+              <FilePath>.\source\ethernet\DNS\dns.c</FilePath>
             </File>
           </Files>
         </Group>

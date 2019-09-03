@@ -72,7 +72,7 @@ int main(void)
 	printf("Run, now is %s\r\n",ctime(&timenow));
 	//Get time from ntp time server
 	SNTP_init();
-	//SNTP_init(SOCK_SNTP,sntp_ip,11,sntp_buf);	
+	
 	
 	ntpserverdefaultconfig();
 	/* SNMP(Simple Network Management Protocol) Agent Initialize */
